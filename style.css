@@ -1,0 +1,299 @@
+/* Java IV — Festivali që përshtatet në çdo ekran
+   Qasja: mobile-first (1 kolonë), pastaj media queries për 600 px dhe 900 px. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --tekst: #1d2433;
+  --tekst-dobet: #4f5a6f;
+  --sfond: #f4f5fa;
+  --karte: #ffffff;
+  --kryesore: #3434a8;
+  --kufi: #dcdfea;
+  --rreze: 12px;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  line-height: 1.5;
+  color: var(--tekst);
+  background: var(--sfond);
+}
+
+/* Kontejneri: kurrë më i gjerë se ekrani -> pa scroll horizontal */
+.kontejner {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+}
+
+/* Imazh fleksibël */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Aksesueshmëria ---------- */
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: var(--tekst);
+  border-radius: 6px;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--kryesore);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Koka dhe menuja (Flexbox) ---------- */
+.koka {
+  background: var(--kryesore);
+  color: #fff;
+  padding-block: 1rem;
+}
+
+.koka-brenda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+}
+
+.nentitull {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.koka h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 1rem + 2vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap; /* në ekran të ngushtë lidhjet kalojnë në rresht të ri */
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menu a:focus-visible {
+  outline-color: #ffd166; /* e verdhë mbi sfond blu: kontrast i lartë */
+}
+
+/* ---------- Hero ---------- */
+main {
+  padding-block: 1.5rem 2rem;
+}
+
+.hero {
+  margin: 0 0 1.5rem;
+  overflow: hidden;
+  border-radius: var(--rreze);
+  background: #0f1640;
+  color: #fff;
+}
+
+.hero figcaption {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+}
+
+h2 {
+  margin: 2rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+/* ---------- Programi (Grid) ---------- */
+.programi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* < 600 px: 1 kolonë */
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 600–899 px: 2 kolona */
+@media (min-width: 600px) {
+  .programi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ≥ 900 px: 3 kolona */
+@media (min-width: 900px) {
+  .programi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.programi-grid > li {
+  display: flex; /* kartat në të njëjtin rresht marrin të njëjtën lartësi */
+  min-width: 0;
+}
+
+/* Karta: pa lartësi fikse, teksti rrjedh lirshëm */
+.karte {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 1.25rem;
+  background: var(--karte);
+  border: 1px solid var(--kufi);
+  border-radius: var(--rreze);
+}
+
+.karte h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere; /* fjalët shumë të gjata thyhen, nuk dalin jashtë */
+  hyphens: auto;
+}
+
+.kategoria {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.kat-punetori   { background: #e3f2e8; color: #1d5c34; }
+.kat-ligjerate  { background: #e6e9fb; color: #2d3592; }
+.kat-eksperiment{ background: #fdecdc; color: #8a3f0b; }
+.kat-vezhgim    { background: #ece4f8; color: #55308f; }
+.kat-panel      { background: #fbe4ea; color: #8c1f3d; }
+
+.orari {
+  margin: 0;
+  color: var(--tekst-dobet);
+}
+
+.lidhja {
+  margin-top: auto; /* lidhja shkon gjithmonë në fund të kartës */
+  padding-top: 0.5rem;
+  color: var(--kryesore);
+  font-weight: 600;
+}
+
+/* ---------- Detajet ---------- */
+.detajet-lista {
+  display: grid;
+  gap: 1rem;
+}
+
+.detaj {
+  min-width: 0;
+  padding: 1rem 1.25rem;
+  background: var(--karte);
+  border: 1px solid var(--kufi);
+  border-radius: var(--rreze);
+  scroll-margin-top: 1rem;
+}
+
+.detaj h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+
+.detaj p {
+  margin: 0 0 0.5rem;
+}
+
+.detaj .meta {
+  color: var(--tekst-dobet);
+  font-size: 0.95rem;
+}
+
+.detaj a,
+#kontakti a {
+  color: var(--kryesore);
+}
+
+/* Detaji i hapur nga lidhja "Detajet" theksohet */
+.detaj:target {
+  border-color: var(--kryesore);
+  box-shadow: 0 0 0 3px rgba(52, 52, 168, 0.25);
+}
+
+/* ---------- Informacione (Flexbox) ---------- */
+.info-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.info {
+  flex: 1 1 220px; /* rritet, tkurret, bazë 220 px */
+  min-width: 0;
+  padding: 1rem 1.25rem;
+  background: var(--karte);
+  border: 1px solid var(--kufi);
+  border-radius: var(--rreze);
+}
+
+.info h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.info p {
+  margin: 0;
+}
+
+footer {
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--kufi);
+  color: var(--tekst-dobet);
+  font-size: 0.9rem;
+}

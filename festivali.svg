@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <linearGradient id="qielli" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1640"/>
+      <stop offset="1" stop-color="#3434a8"/>
+    </linearGradient>
+    <radialGradient id="planeti" cx="0.35" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#ffd59e"/>
+      <stop offset="1" stop-color="#e07a3f"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#qielli)"/>
+
+  <!-- Yjet -->
+  <g fill="#ffffff">
+    <circle cx="60" cy="50" r="2"/><circle cx="150" cy="120" r="1.5"/><circle cx="240" cy="40" r="2.5"/>
+    <circle cx="330" cy="160" r="1.5"/><circle cx="420" cy="70" r="2"/><circle cx="510" cy="30" r="1.5"/>
+    <circle cx="560" cy="190" r="2"/><circle cx="640" cy="90" r="1.5"/><circle cx="720" cy="40" r="2.5"/>
+    <circle cx="790" cy="150" r="1.5"/><circle cx="1080" cy="60" r="2"/><circle cx="1150" cy="140" r="1.5"/>
+    <circle cx="100" cy="300" r="1.5"/><circle cx="200" cy="230" r="2"/><circle cx="470" cy="330" r="1.5"/>
+    <circle cx="1120" cy="320" r="2"/><circle cx="1010" cy="250" r="1.5"/><circle cx="380" cy="260" r="2"/>
+  </g>
+
+  <!-- Planeti me unazë -->
+  <ellipse cx="930" cy="200" rx="170" ry="38" fill="none" stroke="#ffe8c7" stroke-width="10" transform="rotate(-15 930 200)" opacity="0.8"/>
+  <circle cx="930" cy="200" r="95" fill="url(#planeti)"/>
+  <path d="M 760 200 A 170 38 0 0 0 1100 200" fill="none" stroke="#ffe8c7" stroke-width="10" transform="rotate(-15 930 200)"/>
+
+  <!-- Atomi -->
+  <g transform="translate(260 200)">
+    <g fill="none" stroke="#b9f3cf" stroke-width="3" stroke-dasharray="10 8">
+      <ellipse rx="110" ry="38"/>
+      <ellipse rx="110" ry="38" transform="rotate(60)"/>
+      <ellipse rx="110" ry="38" transform="rotate(-60)"/>
+    </g>
+    <!-- bërthama: protone dhe neutrone -->
+    <circle cx="-9" cy="-6" r="11" fill="#ff7a7a"/>
+    <circle cx="9" cy="-6" r="11" fill="#ffd166"/>
+    <circle cx="0" cy="9" r="11" fill="#ff7a7a"/>
+    <!-- elektronet -->
+    <g fill="#ffd166">
+      <circle cx="110" cy="0" r="9"/>
+      <circle cx="-55" cy="-95" r="9"/>
+      <circle cx="-55" cy="95" r="9"/>
+    </g>
+  </g>
+
+  <!-- Toka/horizonti -->
+  <path d="M0 360 Q 300 320 600 350 T 1200 340 V 400 H 0 Z" fill="#0b1030"/>
+</svg>
