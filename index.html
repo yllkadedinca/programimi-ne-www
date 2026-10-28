@@ -3,191 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Festivali që përshtatet në çdo ekran</title>
+    <title>Formulari i misionit sekret</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <a class="skip" href="#main">Kalo te përmbajtja</a>
-
-    <header class="koka">
-      <div class="kontejner koka-brenda">
-        <div>
-          <p class="nentitull">Programimi në WWW · Java IV</p>
-          <h1>Festivali i Shkencës 2026</h1>
-        </div>
-
-        <!-- Menu fleksibile: Flexbox + flex-wrap -->
-        <nav class="menu" aria-label="Menyja kryesore">
-          <ul>
-            <li><a href="#programi">Programi</a></li>
-            <li><a href="#detajet">Detajet</a></li>
-            <li><a href="#informacione">Informacione</a></li>
-            <li><a href="#kontakti">Kontakti</a></li>
-          </ul>
-        </nav>
-      </div>
+    <header>
+      <p>Programimi në WWW · Java V</p>
+      <h1>Regjistro misionin</h1>
     </header>
 
-    <main id="main" class="kontejner">
-      <!-- Imazh fleksibël (aset lokal) -->
-      <figure class="hero">
-        <img
-          src="assets/festivali.svg"
-          alt="Ilustrim i qiellit të natës me yje, një planet me unazë dhe një atom"
-          width="1200"
-          height="400"
-        />
-        <figcaption>14–15 nëntor 2026 · Hyrja falas · Për të gjitha moshat</figcaption>
-      </figure>
+    <main id="main">
+      <p class="info">
+        Demonstrim lokal: përdor vetëm të dhëna të sajuara. Nuk kryhet regjistrim real.
+      </p>
 
-      <!-- Programi: 6 karta në Grid (1 / 2 / 3 kolona) -->
-      <section id="programi" aria-labelledby="titulli-programi">
-        <h2 id="titulli-programi">Programi</h2>
-
-        <ul class="programi-grid">
-          <li>
-            <article class="karte">
-              <p class="kategoria kat-punetori">Punëtori</p>
-              <h3>Robotika për fillestarë</h3>
-              <p class="orari">
-                <time datetime="2026-11-14T10:00">E shtunë, 14 nëntor · 10:00–11:30</time>
-              </p>
-              <a class="lidhja" href="#d1">Detajet <span class="sr-only">për Robotika për fillestarë</span> →</a>
-            </article>
-          </li>
-
-          <li>
-            <article class="karte">
-              <p class="kategoria kat-ligjerate">Ligjëratë</p>
-              <h3>Si funksionon një teleskop?</h3>
-              <p class="orari">
-                <time datetime="2026-11-14T12:00">E shtunë, 14 nëntor · 12:00–13:00</time>
-              </p>
-              <a class="lidhja" href="#d2">Detajet <span class="sr-only">për Si funksionon një teleskop?</span> →</a>
-            </article>
-          </li>
-
-          <li>
-            <article class="karte">
-              <p class="kategoria kat-eksperiment">Eksperiment</p>
-              <!-- Sfida e transferimit: titull me saktësisht 100 karaktere -->
-              <h3>Nga laboratori në kuzhinë: eksperimente të thjeshta kimike që mund t'i provoni në shtëpi me familjen</h3>
-              <p class="orari">
-                <time datetime="2026-11-14T14:00">E shtunë, 14 nëntor · 14:00–15:30</time>
-              </p>
-              <a class="lidhja" href="#d3">Detajet <span class="sr-only">për eksperimentet kimike në kuzhinë</span> →</a>
-            </article>
-          </li>
-
-          <li>
-            <article class="karte">
-              <p class="kategoria kat-punetori">Punëtori</p>
-              <h3>Kodim me Scratch për fëmijë</h3>
-              <p class="orari">
-                <time datetime="2026-11-14T16:00">E shtunë, 14 nëntor · 16:00–17:30</time>
-              </p>
-              <a class="lidhja" href="#d4">Detajet <span class="sr-only">për Kodim me Scratch për fëmijë</span> →</a>
-            </article>
-          </li>
-
-          <li>
-            <article class="karte">
-              <p class="kategoria kat-vezhgim">Vëzhgim</p>
-              <h3>Nata e yjeve: vëzhgim me teleskop</h3>
-              <p class="orari">
-                <time datetime="2026-11-14T19:00">E shtunë, 14 nëntor · 19:00–21:00</time>
-              </p>
-              <a class="lidhja" href="#d5">Detajet <span class="sr-only">për Nata e yjeve</span> →</a>
-            </article>
-          </li>
-
-          <li>
-            <article class="karte">
-              <p class="kategoria kat-panel">Panel</p>
-              <h3>Inteligjenca artificiale në jetën e përditshme</h3>
-              <p class="orari">
-                <time datetime="2026-11-15T11:00">E diel, 15 nëntor · 11:00–12:30</time>
-              </p>
-              <a class="lidhja" href="#d6">Detajet <span class="sr-only">për Inteligjenca artificiale në jetën e përditshme</span> →</a>
-            </article>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Detajet: objektivat e lidhjeve "Detajet" -->
-      <section id="detajet" aria-labelledby="titulli-detajet">
-        <h2 id="titulli-detajet">Detajet e aktiviteteve</h2>
-
-        <div class="detajet-lista">
-          <article id="d1" class="detaj">
-            <h3>Robotika për fillestarë</h3>
-            <p>Ndërtojmë një robot të vogël që ndjek vijën dhe mësojmë si punojnë sensorët dhe motorët.</p>
-            <p class="meta">Vendi: Salla A · Mosha: 10+ · Vende: 20</p>
-            <a href="#programi">↑ Kthehu te programi</a>
-          </article>
-
-          <article id="d2" class="detaj">
-            <h3>Si funksionon një teleskop?</h3>
-            <p>Lentet, pasqyrat dhe zmadhimi, të shpjeguara me modele që mund t'i prekni.</p>
-            <p class="meta">Vendi: Amfiteatri · Mosha: të gjitha</p>
-            <a href="#programi">↑ Kthehu te programi</a>
-          </article>
-
-          <article id="d3" class="detaj">
-            <h3>Nga laboratori në kuzhinë: eksperimente të thjeshta kimike që mund t'i provoni në shtëpi me familjen</h3>
-            <p>Uthull, sodë buke dhe lakër e kuqe: si të dalloni acidet nga bazat me materiale nga kuzhina.</p>
-            <p class="meta">Vendi: Laboratori 2 · Mosha: 8+ (me prind)</p>
-            <a href="#programi">↑ Kthehu te programi</a>
-          </article>
-
-          <article id="d4" class="detaj">
-            <h3>Kodim me Scratch për fëmijë</h3>
-            <p>Krijojmë një lojë të thjeshtë me blloqe dhe mësojmë ciklet dhe kushtet pa shkruar kod.</p>
-            <p class="meta">Vendi: Salla e kompjuterëve · Mosha: 7–12 · Vende: 25</p>
-            <a href="#programi">↑ Kthehu te programi</a>
-          </article>
-
-          <article id="d5" class="detaj">
-            <h3>Nata e yjeve: vëzhgim me teleskop</h3>
-            <p>Vëzhgojmë Hënën dhe planetët e dukshëm. Nëse qielli është i vranët, aktiviteti zhvendoset në planetar.</p>
-            <p class="meta">Vendi: Oborri i qendrës · Mosha: të gjitha</p>
-            <a href="#programi">↑ Kthehu te programi</a>
-          </article>
-
-          <article id="d6" class="detaj">
-            <h3>Inteligjenca artificiale në jetën e përditshme</h3>
-            <p>Diskutim i hapur për asistentët virtualë, rekomandimet në aplikacione dhe përdorimin e përgjegjshëm të AI.</p>
-            <p class="meta">Vendi: Amfiteatri · Mosha: 14+</p>
-            <a href="#programi">↑ Kthehu te programi</a>
-          </article>
+      <!-- GET: vlerat dërgohen te pranuar.html dhe shfaqen në URL (p.sh. ?pseudonimi=...). -->
+      <form action="pranuar.html" method="get">
+        <div class="fusha">
+          <label for="pseudonimi">Pseudonimi (3–20 karaktere)</label>
+          <input
+            id="pseudonimi"
+            name="pseudonimi"
+            type="text"
+            required
+            minlength="3"
+            maxlength="20"
+            autocomplete="off"
+          />
         </div>
-      </section>
 
-      <!-- Informacione: Flexbox me flex-wrap -->
-      <section id="informacione" aria-labelledby="titulli-info">
-        <h2 id="titulli-info">Informacione</h2>
-        <div class="info-lista">
-          <div class="info">
-            <h3>Vendi</h3>
-            <p>Qendra e Shkencës (fiktive), Prishtinë</p>
-          </div>
-          <div class="info">
-            <h3>Hyrja</h3>
-            <p>Falas. Për punëtoritë rekomandohet regjistrimi në hyrje.</p>
-          </div>
-          <div class="info">
-            <h3>Orari</h3>
-            <p>E shtunë 10:00–21:00 · E diel 10:00–14:00</p>
-          </div>
+        <div class="fusha">
+          <label for="email">Email i sajuar</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="student@example.org"
+          />
         </div>
-      </section>
 
-      <section id="kontakti" aria-labelledby="titulli-kontakti">
-        <h2 id="titulli-kontakti">Kontakti</h2>
-        <p>Email: <a href="mailto:info@festivali.example">info@festivali.example</a></p>
-      </section>
+        <div class="fusha">
+          <label for="persona">Persona (1–5)</label>
+          <input
+            id="persona"
+            name="persona"
+            type="number"
+            required
+            min="1"
+            max="5"
+            step="1"
+            class="i-shkurter"
+          />
+        </div>
+
+        <fieldset>
+          <legend>Kategoria</legend>
+          <div class="opsion">
+            <input id="kat-art" name="kategoria" type="radio" value="Art" required />
+            <label for="kat-art">Art</label>
+          </div>
+          <div class="opsion">
+            <input id="kat-shkence" name="kategoria" type="radio" value="Shkencë" />
+            <label for="kat-shkence">Shkencë</label>
+          </div>
+        </fieldset>
+
+        <div class="opsion">
+          <input id="rregullat" name="rregullat" type="checkbox" value="po" required />
+          <label for="rregullat">I pranoj rregullat e demonstrimit</label>
+        </div>
+
+        <button type="submit">Kontrollo formularin</button>
+      </form>
+
+      <table>
+        <caption>Oraret e misioneve</caption>
+        <thead>
+          <tr>
+            <th scope="col">Ora</th>
+            <th scope="col">Misioni</th>
+            <th scope="col">Vendi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">10:00</th>
+            <td>Gjej shenjën</td>
+            <td>Oborri</td>
+          </tr>
+          <tr>
+            <th scope="row">12:00</th>
+            <td>Lexo hartën</td>
+            <td>Biblioteka</td>
+          </tr>
+          <tr>
+            <th scope="row">14:00</th>
+            <td>Zbulo objektin</td>
+            <td>Laboratori</td>
+          </tr>
+        </tbody>
+      </table>
     </main>
 
-    <footer class="kontejner">Shembull mësimor · Të dhëna të sajuara · Vetëm front end</footer>
+    <footer>Shembull mësimor · Të dhëna të sajuara · Vetëm front end</footer>
   </body>
 </html>

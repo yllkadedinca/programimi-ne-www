@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="sq">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulari u pranua</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Kalo te përmbajtja</a>
+    <header>
+      <p>Programimi në WWW · Java V</p>
+      <h1>Formulari kaloi validimin</h1>
+    </header>
+
+    <main id="main">
+      <p class="info">
+        Kjo është vetëm faqe demonstrimi. Të dhënat <strong>nuk ruhen në server</strong>:
+        shfletuesi thjesht hapi këtë faqe me metodën GET.
+      </p>
+      <p>
+        Me GET vlerat e formularit shfaqen në URL (shiko shiritin e adresës pas
+        <code>?</code>). Prandaj mos përdor kurrë të dhëna reale ose fjalëkalime këtu.
+      </p>
+
+      <h2>Vlerat që u dërguan</h2>
+      <dl id="vlerat"></dl>
+
+      <p><a href="index.html">← Kthehu te formulari</a></p>
+    </main>
+
+    <footer>Shembull mësimor · Të dhëna të sajuara · Vetëm front end</footer>
+
+    <script>
+      // Lexon vlerat nga URL-ja dhe i shfaq si tekst (textContent, jo innerHTML).
+      const params = new URLSearchParams(location.search);
+      const etiketat = {
+        pseudonimi: "Pseudonimi",
+        email: "Email",
+        persona: "Persona",
+        kategoria: "Kategoria",
+        rregullat: "Rregullat e pranuara",
+      };
+      const lista = document.getElementById("vlerat");
+      for (const [celes, emri] of Object.entries(etiketat)) {
+        const dt = document.createElement("dt");
+        const dd = document.createElement("dd");
+        dt.textContent = emri;
+        dd.textContent = params.get(celes) || "—";
+        lista.append(dt, dd);
+      }
+    </script>
+  </body>
+</html>
